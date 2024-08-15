@@ -1,0 +1,83 @@
+.tabButtonContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center !important;
+	overflow: auto;
+	margin: auto;
+	z-index: 2;
+}
+
+.tabButtonContainer .tabButton:first-child {
+	margin-right: -12px;
+	margin-left: 10px;
+	border-top-left-radius: 64% 60%;
+	border-top-right-radius: 58% 60%;
+	border-bottom-right-radius: 58% 60%;
+	border-bottom-left-radius: 65% 60%;
+}
+
+.tabButtonContainer .tabButton:last-child {
+	margin-left: -12px;
+	margin-right: 10px;
+	border-top-left-radius: 64% 60%;
+	border-top-right-radius: 58% 60%;
+	border-bottom-right-radius: 58% 60%;
+	border-bottom-left-radius: 65% 60%;
+}
+
+.tabIcon {
+}
+
+.selectedTabIcon {
+	filter: brightness(0) saturate(100%) invert(46%) sepia(76%) saturate(439%)
+		hue-rotate(196deg) brightness(79%) contrast(94%);
+}
+
+.tabButton {
+	background-color: var(--tab-button-color);
+	border-top-left-radius: 70% 60%;
+	border-top-right-radius: 70% 60%;
+	border-bottom-left-radius: 70% 60%;
+	border-bottom-right-radius: 70% 60%;
+
+	min-width: 75px;
+	max-width: 75px;
+	min-height: 75px;
+	max-height: 75px;
+
+	overflow: visible;
+}
+
+.tabButtonTooltip::before {
+	position: absolute;
+	padding: 0 12px;
+	border-radius: 12px;
+	transform: translate(0, -32px);
+	font-size: 1rem;
+
+	background-color: var(--tab-active-color);
+	color: white;
+	text-transform: none;
+	z-index: 1;
+}
+
+.tooltipRewards::before {
+	content: "Rewards";
+}
+
+.tooltipStamps::before {
+	content: "Stamps";
+}
+
+.tooltipCollection::before {
+	content: "Collection";
+}
+
+@keyframes hoverPulse {
+	0% {
+		scale: 1;
+	}
+	100% {
+		scale: 1.05;
+	}
+}

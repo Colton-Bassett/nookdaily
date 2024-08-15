@@ -1,0 +1,337 @@
+.modalContainer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	height: 500px;
+	min-height: 500px;
+	width: 1000px;
+	min-width: 1000px;
+	padding: 30px 30px 0px 30px;
+	border-radius: 60px;
+	background-image: url("/taskModal/taskModal.svg");
+	background-repeat: no-repeat;
+	outline: none;
+	z-index: 3010;
+	overflow: hidden;
+	animation: miniPulse 0.3s 1 alternate;
+	transition: opacity 1s ease-out;
+}
+
+@keyframes miniPulse {
+	0% {
+		scale: 1;
+	}
+	50% {
+		scale: 1.02;
+	}
+	100% {
+		scale: 1;
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+
+	padding: 3rem 3rem 0rem 3rem;
+}
+
+.popFluffContainer {
+	display: grid;
+	grid-template-rows: repeat(2, 50px);
+	grid-template-columns: repeat(3, 33px);
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	transform: translate(-420px, -65px);
+	animation: popOut 0.5s ease;
+}
+
+.popFluffContainer:nth-child(2) {
+	transform: translate(400px, 340px);
+	animation: popOutBot 0.5s ease;
+}
+
+.popFluffL {
+	width: 30px;
+	height: 30px;
+	border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+	background-color: var(--task-color);
+	grid-row: 2;
+	grid-column: 1;
+	transform: scale(0);
+	animation: popGrow 0.5s ease;
+}
+
+.popFluffR {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: var(--task-color);
+	grid-row: 1;
+	grid-column: 3;
+	transform: scale(0);
+	animation: popGrow 0.5s ease;
+}
+
+@keyframes popGrow {
+	0% {
+		transform: translate(-20, -5) scale(0);
+	}
+	50% {
+		transform: translate(0, 0) scale(1);
+	}
+	100% {
+		transform: translate(0, 0) scale(0);
+	}
+}
+
+@keyframes popOut {
+	0% {
+		transform: translate(-400px, -60px);
+	}
+	50% {
+		transform: translate(-420px, -65px);
+	}
+
+	100% {
+		transform: translate(-420px, -65px);
+	}
+}
+
+@keyframes popOutBot {
+	0% {
+		transform: translate(380px, 335px);
+	}
+	50% {
+		transform: translate(400px, 340px);
+	}
+
+	100% {
+		transform: translate(400px, 340px);
+	}
+}
+
+.spaceBetween {
+	justify-content: space-between;
+}
+
+.title {
+	color: var(--dark-brown-text-color);
+	text-align: center;
+	line-height: 1.5;
+	font-size: 2.25rem;
+	letter-spacing: 1px;
+}
+
+.accentText {
+	color: var(--accent-text-color);
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 40px;
+	width: 100%;
+	padding-top: 10px;
+	gap: 30px;
+}
+
+.redeemContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.redeemInner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+
+	cursor: pointer;
+}
+
+.redeemButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 94px;
+	margin-top: 20px;
+	cursor: pointer;
+
+	border: 6px var(--task-modal-redeem-bg-color) solid;
+	border-radius: 45px;
+	background: var(--task-modal-redeem-gradient);
+	background-size: 200% 100%;
+	position: relative;
+	overflow: hidden;
+	transition: backgroundPosition 0.5s ease;
+	cursor: pointer;
+}
+
+.redeemButton:active {
+	transform: scale(0.9);
+}
+
+.redeemButton:hover {
+	animation: moveBackground 8s linear infinite;
+}
+
+.plinkHide {
+	display: none;
+}
+.plinkAnimate {
+	display: block;
+}
+
+.redeemButtonPlink {
+	position: absolute;
+	z-index: 10;
+	animation: plinkR 0.5s ease;
+	transform: translate(0px, -50px) scale(0);
+}
+
+.plinkR {
+	transform: translate(-20px, -50px) scale(0);
+	animation: plinkR 0.5s ease;
+}
+
+.plinkL {
+	animation: plinkL 0.5s ease;
+}
+
+@keyframes moveBackground {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+@keyframes plinkL {
+	0% {
+		transform: translate(0, -50px);
+	}
+	50% {
+	}
+	100% {
+		transform: translate(-18px, -50px);
+	}
+}
+
+@keyframes plinkR {
+	0% {
+		transform: translate(-20px, -50px);
+	}
+	50% {
+	}
+	100% {
+		transform: translate(2px, -50px);
+	}
+}
+
+.nmt {
+	transform: rotate(-10deg);
+	margin-right: 10px;
+	margin-top: 4px;
+}
+
+.points {
+	color: var(--nmt-count-color);
+	font-size: 3.75rem;
+	font-weight: 500;
+}
+
+.multiplierBadge {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 42px;
+	width: 56px;
+	transform: translate(140px, -25px);
+
+	background-color: var(--multiplier-badge-color);
+	border-radius: 35%;
+	color: white;
+	font-size: 1.5rem;
+	letter-spacing: 0.1rem;
+	z-index: 20;
+
+	animation: badgeBounce 0.75s linear infinite;
+}
+
+.div:has(.taskContainer) {
+	position: absolute;
+}
+
+.tanukiGif {
+	position: absolute;
+	display: none;
+	transform: translateY(210px);
+	z-index: 2;
+}
+
+.showTanukiGif {
+	position: absolute;
+	display: block;
+	transform: translateY(210px);
+	z-index: 2;
+}
+
+.worldContainer {
+	overflow: hidden;
+	border-radius: 70%;
+	margin-top: -100px;
+	pointer-events: none;
+}
+
+.world {
+	margin-top: 200px;
+}
+
+.animateWorld {
+	margin-top: 200px;
+	animation: turnWorld 1.8s linear forwards;
+}
+
+@keyframes turnWorld {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(-80deg);
+	}
+}
+
+@keyframes badgeBounce {
+	0% {
+	}
+	20% {
+		transform: translate(140px, -27px) rotate(-5deg);
+	}
+	90% {
+		transform: translate(140px, -29px) rotate(-10deg);
+	}
+	100% {
+		transform: translate(140px, -25px) rotate(0deg);
+	}
+}

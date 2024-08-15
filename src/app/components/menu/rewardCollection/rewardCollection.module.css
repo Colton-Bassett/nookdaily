@@ -1,0 +1,43 @@
+/* rewardCollection */
+
+.rewardCollection {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	overflow-x: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.rewardCard {
+	min-height: 150px;
+	padding: 10px;
+	background-color: var(--reward-card-bg-color);
+}
+
+.rewardCardInner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	background: radial-gradient(
+			circle,
+			var(--reward-card-bg-accent-color) 1px,
+			transparent 1px
+		),
+		radial-gradient(
+			circle,
+			var(--reward-card-bg-accent-color) 1px,
+			transparent 1px
+		);
+	background-size: 10px 10px;
+	background-position: center center;
+	background-repeat: repeat-x, repeat-y;
+}
+
+.rewardUnlocked {
+	width: 100px;
+	height: 100px;
+}

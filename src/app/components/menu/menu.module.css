@@ -1,0 +1,49 @@
+/* menu */
+.menuContainer {
+	display: inline-flex;
+	justify-content: right;
+	max-width: 100vw;
+	align-items: center;
+	margin-top: 0.5rem;
+	margin-right: 1rem;
+}
+
+.menuButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 130px;
+	transform: rotate(4deg);
+
+	background-image: url("/menu/nmtMenu.svg");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	z-index: 1301;
+}
+
+.menuButton:hover {
+	animation: hoverPulse 1s infinite alternate;
+}
+
+.menuButton:active {
+	transform: scale(0.9);
+}
+
+.nmtCount {
+	margin-top: 36px;
+	color: var(--nmt-count-color);
+	font-size: 2.625rem;
+	z-index: 100000 !important;
+}
+
+@keyframes hoverPulse {
+	0% {
+		scale: 1;
+	}
+	100% {
+		scale: 1.05;
+	}
+}

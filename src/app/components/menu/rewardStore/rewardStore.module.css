@@ -1,0 +1,98 @@
+.row {
+	cursor: pointer;
+	border-bottom: 3px dotted var(--reward-store-row-bg-color);
+}
+
+.row:hover {
+	background: var(--reward-store-row-gradient);
+	background-size: 200% 100%;
+	position: relative;
+	overflow: hidden;
+	transition: backgroundPosition 0.5s ease;
+
+	animation: moveBackground 25s linear infinite;
+}
+
+@keyframes moveBackground {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.row:last-child td,
+.row:last-child th {
+	border: 0;
+}
+
+.row .cell:last-child {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.cell {
+	font-size: 1.25rem;
+	color: var(--dark-blue-text-color);
+	border: none;
+}
+
+.nmtIcon {
+	margin-right: 6px;
+	transform: rotate(-10deg);
+}
+
+.redeemModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	height: 200px;
+	width: 600px;
+	padding: 30px;
+	border-radius: 60px;
+	background-color: var(--reward-store-modal-bg-color);
+}
+
+.redeemText {
+	color: white;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.redeemAccentText {
+	color: var(--accent-text-color);
+}
+
+.redeemModalActions {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	height: 40px;
+	width: 100%;
+	padding-top: 10px;
+	gap: 30px;
+}
+
+.redeemModalButtonContainer {
+	display: flex;
+	justify-content: space-around;
+	width: 175px;
+}
+
+.redeemModalButton {
+	background-color: transparent;
+	color: white;
+	border-style: none;
+	font-size: 1.25rem;
+	cursor: pointer;
+}
