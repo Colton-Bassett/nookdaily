@@ -7,7 +7,7 @@ import { Backdrop, Modal, Fade, Slide } from "@mui/material";
 import styles from "./taskModal.module.css";
 import { ACTIONS, Task } from "@/app/types";
 import { StateDispatchContext } from "../stateContext";
-import { polkaDotBackground } from "../logic";
+import { polkaDotBackground } from "../../helpers/polkaDotBackground";
 import Sparkles from "../layout/sparkles";
 import React from "react";
 import { TransitionProps } from "@mui/material/transitions";
@@ -123,7 +123,6 @@ const TaskModal: React.FC<taskModalProps> = ({
 									width={20}
 									height={120}
 									alt="redeem plink"
-									aria-hidden={true}
 									className={`${styles.redeemButtonPlink} 
 									${styles.plinkL}`}
 								></Image>
@@ -166,7 +165,6 @@ const TaskModal: React.FC<taskModalProps> = ({
 									width={20}
 									height={120}
 									alt="redeem plink"
-									aria-hidden={true}
 									className={`${styles.redeemButtonPlink} 
 									${styles.plinkR}`}
 								></Image>

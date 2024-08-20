@@ -14,7 +14,7 @@ function reducer(state: State, action: Action) {
 			const { rewardCost } = action.payload || {};
 			return {
 				...state,
-				nmt: state.nmt - (rewardCost ?? 0),
+				nmt: state.nmt ? state.nmt - (rewardCost ?? 0) : state.nmt,
 			};
 		// checks if available slot in stampCard's stampList, adds stamp to stampCard's stampList, updates stampCollection
 		case ACTIONS.ADD_STAMP: {
@@ -41,7 +41,7 @@ function reducer(state: State, action: Action) {
 				return stampCard;
 			};
 
-			const updatedCollection = state.stampCollection.map((stampCard) =>
+			const updatedCollection = state.stampCollection?.map((stampCard) =>
 				stampCard.id === stampId
 					? updateStampCollection(stampCard, getCurrentDate())
 					: stampCard
@@ -54,7 +54,7 @@ function reducer(state: State, action: Action) {
 			// destructure rewardId from action.payload
 			const { rewardId } = action.payload || {};
 
-			const updatedRewardCollection = state.rewardCollection.map(
+			const updatedRewardCollection = state.rewardCollection?.map(
 				(rewardCard) => {
 					if (rewardCard.id === rewardId) {
 						return {
@@ -84,22 +84,24 @@ function reducer(state: State, action: Action) {
 			}
 
 			// remove task
-			const updatedTaskCollection = state.taskCollection.filter(
-				(task) => task.id !== taskIdToRemove
-			);
+			const updatedTaskCollection = state.taskCollection
+				? state.taskCollection.filter(
+						(task) => task.id !== taskIdToRemove
+				  )
+				: [];
 
 			// for countUp
 			const updatedNMTStart = state.nmt;
 
 			// add points to nmt
 			const updatedNMT =
-				points && multiplier
+				state.nmt !== undefined && points && multiplier
 					? state.nmt + points * multiplier
-					: state.nmt;
+					: state.nmt ?? 0;
 
 			// add random, unused task to taskCollection
 			const usedTaskIds = new Set(
-				updatedTaskCollection.map((task) => task.id)
+				updatedTaskCollection?.map((task) => task.id)
 			);
 
 			let randomTask;
@@ -177,6 +179,7 @@ function generateTaskCollection(
 	count: number = 5,
 	defaultMultiplier: number = 2
 ): Task[] {
+	console.log("generateTaskCollection called");
 	// TODO: use actual multiplier from task (instead of default)
 	const tasks: Task[] = [];
 	const usedTaskIds = new Set<string>();

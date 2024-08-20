@@ -1,10 +1,10 @@
 export interface State {
-	nmt: number;
-	nmtStart: number;
-	stampCollection: StampCard[];
-	rewardCollection: RewardCard[];
-	taskCollection: Task[];
-	lastSeen: string;
+	nmt: number | undefined;
+	nmtStart: number | undefined;
+	stampCollection: StampCard[] | undefined;
+	rewardCollection: RewardCard[] | undefined;
+	taskCollection: Task[] | undefined;
+	lastSeen: string | undefined;
 }
 
 export const ACTIONS = {

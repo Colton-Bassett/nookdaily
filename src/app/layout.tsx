@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Nook Daily",
-	description: "Nook Daily Todo App",
+	description: "Nook Daily Wellness App",
 };
 
 export default function RootLayout({

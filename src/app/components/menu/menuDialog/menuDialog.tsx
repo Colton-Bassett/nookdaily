@@ -9,7 +9,7 @@ import { Backdrop, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui
 // Internal
 import styles from "./menuDialog.module.css";
 import { MenuTabButtons, MenuTabContent } from "./menuTabs";
-import { polkaDotBackground } from "../../logic";
+import { polkaDotBackground } from "../../../helpers/polkaDotBackground";
 
 interface MenuDialogProps {
 	open: boolean;

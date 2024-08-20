@@ -1,5 +1,32 @@
 import { Task } from "@/app/types";
 
+// Define possible points with their probabilities
+const POINTS_OPTIONS = [
+	{ value: 100, weight: 70 },
+	{ value: 150, weight: 20 },
+	{ value: 200, weight: 10 },
+];
+
+// Function to get a random point value with weighted probabilities
+const getRandomPoints = (): number => {
+	const totalWeight = POINTS_OPTIONS.reduce(
+		(sum, option) => sum + option.weight,
+		0
+	);
+	const randomValue = Math.random() * totalWeight;
+
+	let accumulatedWeight = 0;
+	for (const option of POINTS_OPTIONS) {
+		accumulatedWeight += option.weight;
+		if (randomValue < accumulatedWeight) {
+			return option.value;
+		}
+	}
+
+	// Fallback in case something goes wrong
+	return POINTS_OPTIONS[0].value;
+};
+
 const tasksData: Task[] = [
 	// FOOD
 	{
@@ -7,7 +34,7 @@ const tasksData: Task[] = [
 		name: "Meat Alternative",
 		description: "Go meatless for a meal today",
 		type: "food",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -17,7 +44,7 @@ const tasksData: Task[] = [
 		name: "Eat Fruits or Vegetables",
 		description: "Have fruit or vegetables for a snack",
 		type: "food",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -27,7 +54,7 @@ const tasksData: Task[] = [
 		name: "Healthier Food Option",
 		description: "Choose a healthy option for food",
 		type: "food",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -37,7 +64,7 @@ const tasksData: Task[] = [
 		name: "Try New Recipe",
 		description: "Look up a new recipe and try it",
 		type: "food",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -47,7 +74,7 @@ const tasksData: Task[] = [
 		name: "Visit New Restaurant",
 		description: "Try eating somewhere new today",
 		type: "food",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -58,7 +85,7 @@ const tasksData: Task[] = [
 		name: "Go on a Walk",
 		description: "Take a short walk outside",
 		type: "self",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -68,7 +95,7 @@ const tasksData: Task[] = [
 		name: "Meditate",
 		description: "Clear your mind with some meditation",
 		type: "self",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -78,7 +105,7 @@ const tasksData: Task[] = [
 		name: "Journal Time",
 		description: "Write a page or two about whatever you like",
 		type: "self",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -89,7 +116,7 @@ const tasksData: Task[] = [
 		description:
 			"Consciously spend some time away from technology and social media",
 		type: "self",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -100,7 +127,7 @@ const tasksData: Task[] = [
 		name: "Clean or Organize",
 		description: "Choose something small to clean or organize",
 		type: "purchase",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -110,7 +137,7 @@ const tasksData: Task[] = [
 		name: "Be Spontaneous",
 		description: "Do something different and spontaneous",
 		type: "purchase",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -120,7 +147,7 @@ const tasksData: Task[] = [
 		name: "Learn Something New",
 		description: "Take time to learn something new",
 		type: "purchase",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -130,7 +157,7 @@ const tasksData: Task[] = [
 		name: "Give Something",
 		description: "Give someone a gift or a compliment",
 		type: "purchase",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -140,7 +167,7 @@ const tasksData: Task[] = [
 		name: "Try New Hobby",
 		description: "Try a new hobby you've always wanted to try",
 		type: "purchase",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -152,7 +179,7 @@ const tasksData: Task[] = [
 		description:
 			"Practice active listening and validation, make someone feel heard",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -162,7 +189,7 @@ const tasksData: Task[] = [
 		name: "Say Yes",
 		description: "Say yes to the next (reasonable) request you get",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -173,7 +200,7 @@ const tasksData: Task[] = [
 		name: "Talk to Someone",
 		description: "Message someone or drop by for a chat",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -183,7 +210,7 @@ const tasksData: Task[] = [
 		name: "Do a Favor",
 		description: "Offer to do someone a favor",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -193,7 +220,7 @@ const tasksData: Task[] = [
 		name: "Make Gratitude List",
 		description: "Tell someone how grateful you are for something they do",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -203,7 +230,7 @@ const tasksData: Task[] = [
 		name: "Say Thank You",
 		description: "Call up someone or take time to express gratitude",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",
@@ -213,7 +240,7 @@ const tasksData: Task[] = [
 		name: "Compliment Someone",
 		description: "Say something positive to a stranger or friend",
 		type: "social",
-		points: 100,
+		points: getRandomPoints(),
 		multiplier: 1,
 		dateAssigned: "",
 		imageUrl: "",

@@ -81,6 +81,10 @@ body {
 	animation: hoverPulse 1s infinite alternate;
 }
 
+.slick-list {
+	height: 450px;
+}
+
 /* maybe used for curving tasks in an arch */
 /* .slick-track .slick-slide:first-child div {
 	position: absolute !important;
