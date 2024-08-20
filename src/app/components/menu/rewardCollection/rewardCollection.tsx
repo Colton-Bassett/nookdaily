@@ -29,31 +29,32 @@ const RewardCollection: React.FC = () => {
 		[]
 	);
 
-	const divs = state?.rewardCollection.map((card, index) => (
-		<Tooltip
-			title={card.title}
-			placement="top"
-			arrow
-			key={index}
-			slotProps={{
-				tooltip: { sx: tooltipStyle },
-				arrow: { sx: { color: tooltipArrowStyle } },
-			}}
-		>
-			<div key={index} className={styles.rewardCard}>
-				<div className={styles.rewardCardInner}>
-					{card.purchased && (
-						<Image
-							src={"/menu/collectionSticker.svg"}
-							width={125}
-							height={125}
-							alt="collection sticker"
-						/>
-					)}
+	const divs =
+		state?.rewardCollection?.map((card, index) => (
+			<Tooltip
+				title={card.title}
+				placement="top"
+				arrow
+				key={index}
+				slotProps={{
+					tooltip: { sx: tooltipStyle },
+					arrow: { sx: { color: tooltipArrowStyle } },
+				}}
+			>
+				<div key={index} className={styles.rewardCard}>
+					<div className={styles.rewardCardInner}>
+						{card.purchased && (
+							<Image
+								src={"/menu/collectionSticker.svg"}
+								width={125}
+								height={125}
+								alt="collection sticker"
+							/>
+						)}
+					</div>
 				</div>
-			</div>
-		</Tooltip>
-	));
+			</Tooltip>
+		)) || [];
 	return <Paper className={styles.rewardCollection}>{divs}</Paper>;
 };
 

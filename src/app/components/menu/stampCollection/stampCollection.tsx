@@ -11,7 +11,7 @@ import { StateContext } from "../../stateContext";
 const StampCollection: React.FC = () => {
 	const state = useContext(StateContext);
 
-	const StampCardCollection = state?.stampCollection.map((card, index) => (
+	const StampCardCollection = state?.stampCollection?.map((card, index) => (
 		<div key={index} className={styles.stampCard}>
 			<div className={styles.stampCardInner}>
 				<div

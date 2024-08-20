@@ -127,27 +127,25 @@ const TaskModal: React.FC<taskModalProps> = ({
 									${styles.plinkL}`}
 								></Image>
 							</div>
-							<Sparkles
-								children={
-									<button
-										className={styles.redeemButton}
-										type="button"
-										aria-label="Redeem miles"
-										onClick={handleCloseModalWithDelay}
-									>
-										<Image
-											src="/taskModal/redeemNmtIcon.svg"
-											width={58}
-											height={41}
-											alt="nmt icon"
-											className={styles.nmt}
-										></Image>
-										<p className={styles.points}>
-											{selectedTask?.points}
-										</p>
-									</button>
-								}
-							></Sparkles>
+							<Sparkles>
+								<button
+									className={styles.redeemButton}
+									type="button"
+									aria-label="Redeem miles"
+									onClick={handleCloseModalWithDelay}
+								>
+									<Image
+										src="/taskModal/redeemNmtIcon.svg"
+										width={58}
+										height={41}
+										alt="nmt icon"
+										className={styles.nmt}
+									></Image>
+									<p className={styles.points}>
+										{selectedTask?.points}
+									</p>
+								</button>
+							</Sparkles>
 
 							{selectedTask?.multiplier === 2 && (
 								<div className={styles.multiplierBadge}>x2</div>

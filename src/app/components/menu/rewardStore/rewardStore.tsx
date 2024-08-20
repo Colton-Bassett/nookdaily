@@ -101,9 +101,10 @@ const RedeemModal: React.FC<RedeemModalProps> = ({
 
 	const canPurchaseReward = () => {
 		if (state && selectedReward) {
-			const canPurchase = state?.nmt >= selectedReward?.cost;
+			const canPurchase = (state.nmt ?? 0) >= selectedReward.cost;
 			return canPurchase;
 		}
+		return false;
 	};
 
 	return (

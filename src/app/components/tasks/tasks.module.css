@@ -5,6 +5,7 @@
 	transform: translate(0px, 8rem);
 	padding: 0 50px;
 	z-index: 5;
+	margin-top: -50px;
 }
 
 /* .taskContainer:nth-child(1) {
@@ -42,8 +43,6 @@
 
 .nextArrow {
 	top: 45%;
-
-	transform: translate(50%, -50%);
 }
 
 .nextArrow::before {

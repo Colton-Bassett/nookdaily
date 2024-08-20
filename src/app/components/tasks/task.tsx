@@ -156,7 +156,7 @@ const TaskComponent: React.FC<TaskProps> = ({
 	return (
 		<>
 			{isTaskClicked && selectedTask?.id === task.id ? (
-				<Sparkles children={Task}></Sparkles>
+				<Sparkles>{Task}</Sparkles>
 			) : (
 				Task
 			)}
