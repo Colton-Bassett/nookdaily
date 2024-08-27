@@ -3,14 +3,26 @@
 	display: flex;
 	flex-direction: column;
 	min-height: var(--minimum-height);
+	height: 100vh;
 	position: relative;
 
 	background-color: var(--sky-color);
 }
 
+.customTask {
+	height: 100px;
+	width: 100px;
+	background-color: pink;
+}
+
+.customTask:hover {
+	background-color: yellow;
+}
+
 .topContainer {
 	display: flex;
 	justify-content: flex-end;
+	margin-top: auto;
 	transform: translate(0px, -450px);
 	z-index: 5;
 	animation: topDown 2s forwards;
@@ -32,7 +44,14 @@
 	justify-content: flex-end;
 	flex-direction: column;
 	height: 100vh;
+	max-height: 800px;
 	min-height: 800px;
+}
+
+@media screen and (min-height: 850px) {
+	.botContainer {
+		margin-bottom: -75px;
+	}
 }
 
 .backgroundTop {

@@ -42,7 +42,8 @@
 }
 
 .nextArrow {
-	top: 45%;
+	/* top: 45%; */
+	top: 36%;
 }
 
 .nextArrow::before {
@@ -50,7 +51,8 @@
 }
 
 .prevArrow {
-	top: 45%;
+	/* top: 45%; */
+	top: 36%;
 }
 
 .prevArrow::before {

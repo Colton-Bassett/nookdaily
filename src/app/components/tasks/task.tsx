@@ -1,11 +1,14 @@
 // External
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 
 // Internal
 import styles from "./task.module.css";
 import { Task } from "@/app/types";
 import Sparkles from "../layout/sparkles";
+
+const throttle = require("lodash.throttle");
+const debounce = require("lodash.debounce");
 
 interface TaskProps {
 	selectedTask: Task | null;
@@ -88,7 +91,7 @@ const TaskComponent: React.FC<TaskProps> = ({
 		<div
 			className={containerClassName}
 			onClick={handleClickTask}
-			onMouseEnter={handleMouseEnter}
+			onMouseOver={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 			onAnimationEnd={() => setIsTaskClicked(false)}
 		>

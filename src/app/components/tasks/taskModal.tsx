@@ -1,7 +1,7 @@
 // External
-import { useCallback, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
-import { Backdrop, Modal, Fade, Slide } from "@mui/material";
+import { Backdrop, Modal } from "@mui/material";
 
 // Internal
 import styles from "./taskModal.module.css";
@@ -10,7 +10,6 @@ import { StateDispatchContext } from "../stateContext";
 import { polkaDotBackground } from "../../helpers/polkaDotBackground";
 import Sparkles from "../layout/sparkles";
 import React from "react";
-import { TransitionProps } from "@mui/material/transitions";
 
 interface taskModalProps {
 	openModal: boolean;
@@ -20,7 +19,6 @@ interface taskModalProps {
 	modalRef: React.MutableRefObject<null>;
 }
 
-const CLOSE_MODAL_DELAY = 2500;
 const HIDE_ANIMATE_DELAY = 750;
 
 const TaskModal: React.FC<taskModalProps> = ({
@@ -33,27 +31,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 	const dispatch = useContext(StateDispatchContext);
 	const [isRedeemClicked, setIsRedeemClicked] = useState(false);
 
-	// const handleCompleteTask = () => {
-	// 	const task = {
-	// 		id: selectedTask?.id,
-	// 		points: selectedTask?.points,
-	// 		multiplier: selectedTask?.multiplier,
-	// 	};
-	// 	// figure out this disptach oof
-	// 	dispatch?.({
-	// 		type: ACTIONS.COMPLETE_TASK,
-	// 		payload: {
-	// 			task: task,
-	// 		},
-	// 	});
-
-	// 	dispatch?.({
-	// 		type: ACTIONS.ADD_STAMP,
-	// 		payload: { stampId: selectedTask?.id },
-	// 	});
-	// };
-
-	const handleCompleteTask = useCallback(() => {
+	const handleCompleteTask = () => {
 		setTimeout(() => {
 			if (selectedTask) {
 				const { id, points, multiplier } = selectedTask;
@@ -69,19 +47,19 @@ const TaskModal: React.FC<taskModalProps> = ({
 				setHiddenTaskId(undefined);
 			}
 		}, HIDE_ANIMATE_DELAY);
-	}, [selectedTask, dispatch]);
+	};
 
-	const handleCloseModalWithDelay = useCallback(() => {
-		setIsRedeemClicked(true);
+	const handleAnimationEnd = () => {
 		setTimeout(() => {
 			handleCompleteTask();
 			if (selectedTask) {
 				setHiddenTaskId(selectedTask.id);
 			}
 			setIsRedeemClicked(false);
+
 			handleClose();
-		}, CLOSE_MODAL_DELAY);
-	}, [handleClose, handleCompleteTask, selectedTask, setHiddenTaskId]);
+		}, HIDE_ANIMATE_DELAY);
+	};
 
 	return (
 		<Modal
@@ -132,7 +110,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 									className={styles.redeemButton}
 									type="button"
 									aria-label="Redeem miles"
-									onClick={handleCloseModalWithDelay}
+									onClick={() => setIsRedeemClicked(true)}
 								>
 									<Image
 										src="/taskModal/redeemNmtIcon.svg"
@@ -191,6 +169,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 										? styles.animateWorld
 										: styles.world
 								}
+								onAnimationEnd={handleAnimationEnd}
 							></Image>
 						</div>
 					</div>
@@ -199,15 +178,5 @@ const TaskModal: React.FC<taskModalProps> = ({
 		</Modal>
 	);
 };
-
-// Slide up transition
-const MenuDialogTransition = React.forwardRef(function Transition(
-	props: TransitionProps & {
-		children: React.ReactElement<any, any>;
-	},
-	ref: React.Ref<unknown>
-) {
-	return <Slide direction="up" ref={ref} {...props} />;
-});
 
 export default TaskModal;

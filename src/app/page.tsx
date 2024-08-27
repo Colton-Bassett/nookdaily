@@ -1,6 +1,6 @@
 "use client";
 // External
-import { useState, useReducer, Suspense } from "react";
+import { useState, useReducer } from "react";
 
 // Internal
 import styles from "./page.module.css";

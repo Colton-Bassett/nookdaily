@@ -8,7 +8,7 @@ interface CloudsProps {
 	position: "top" | "bot"; // Prop for specifying the position of clouds
 }
 
-const Clouds: React.FC<CloudsProps> = ({ position }) => {
+const Clouds: React.FC<CloudsProps> = React.memo(({ position }) => {
 	const motionDuration = 100; // The duration of the animation;
 	const cloudInterval = motionDuration * 0.1; // How close the clouds are (10%)
 
@@ -164,6 +164,8 @@ const Clouds: React.FC<CloudsProps> = ({ position }) => {
 			<CreateAnimateMotionSet />
 		</svg>
 	);
-};
+});
+
+Clouds.displayName = "Clouds";
 
 export default Clouds;

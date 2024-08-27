@@ -37,7 +37,7 @@ function reducer(state: State, action: Action) {
 						};
 					}
 				}
-				console.log("All slots are full for stampCard", stampId);
+
 				return stampCard;
 			};
 
