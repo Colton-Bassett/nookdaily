@@ -1,6 +1,6 @@
 "use client";
 // External
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 
 // Internal
 import styles from "./page.module.css";
@@ -36,10 +36,16 @@ export default function Home() {
 	const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 	const [isTaskClicked, setIsTaskClicked] = useState(false);
 
+	// const [isLoaded, setIsLoaded] = useState(false);
+
+	// useEffect(() => {
+	// 	console.log("?? is loaded");
+	//     setIsLoaded(true);
+	// }, []);
+
 	return (
 		<StateContext.Provider value={state}>
 			<StateDispatchContext.Provider value={dispatch}>
-				{/* <Suspense fallback={<Loading />}> */}
 				<main className={styles.main}>
 					<TopLayout
 						selectedTask={selectedTask}
@@ -52,7 +58,6 @@ export default function Home() {
 						isTaskClicked={isTaskClicked}
 					></BotLayout>
 				</main>
-				{/* </Suspense> */}
 			</StateDispatchContext.Provider>
 		</StateContext.Provider>
 	);

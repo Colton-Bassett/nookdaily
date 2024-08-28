@@ -24,7 +24,8 @@ const MenuDialog: React.FC<MenuDialogProps> = ({ open, handleClose }) => {
 			"& .MuiPaper-root": {
 				color: "white",
 				background: "#c5d2f5",
-				minWidth: "850px",
+				width: "848px",
+				maxWidth: "848px",
 				minHeight: "425px",
 				borderRadius: "16px",
 			},
@@ -46,7 +47,8 @@ const MenuDialog: React.FC<MenuDialogProps> = ({ open, handleClose }) => {
 			paddingBottom: "0px !important",
 			"& .MuiPaper-root": {
 				borderRadius: "0px !important",
-				minWidth: "800px !important",
+
+				maxWidth: "100% !important",
 				maxHeight: "425px !important",
 				boxShadow: "none",
 			},
@@ -67,7 +69,6 @@ const MenuDialog: React.FC<MenuDialogProps> = ({ open, handleClose }) => {
 				sx={dialogStyle}
 			>
 				<DialogTitle className={styles.title}>
-					<div aria-label="spacer"></div>
 					<MenuTabButtons
 						tabIndex={tabIndex}
 						setTabIndex={setTabIndex}
