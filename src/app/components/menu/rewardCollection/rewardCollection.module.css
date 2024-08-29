@@ -9,8 +9,25 @@
 	padding-right: 20px;
 }
 
+@media screen and (max-width: 960px) {
+	.rewardCollection {
+		grid-template-columns: repeat(2, 1fr);
+		place-items: center;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.rewardCollection {
+		grid-template-columns: repeat(1, 1fr);
+		place-items: center;
+	}
+}
+
 .rewardCard {
 	min-height: 150px;
+	min-width: 175px;
+	max-width: 175px;
+
 	padding: 10px;
 	background-color: var(--reward-card-bg-color);
 }

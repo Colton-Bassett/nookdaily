@@ -25,10 +25,7 @@ const initialState: State = {
 };
 
 // TODO
-// CHECK IF LASTSEEN AND STATE UPDATE ACTUALLY WORKED WITH NEW DAY
-// THROTTLE/DEBOUNCE HOVER TASK
 // TASK MORPH ANIMATION
-// TURN STRICT MODE BACK ON
 
 export default function Home() {
 	const [state, dispatch] = useReducer(reducer, initialState);

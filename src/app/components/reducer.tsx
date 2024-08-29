@@ -180,7 +180,6 @@ function generateTaskCollection(
 	defaultMultiplier: number = 2
 ): Task[] {
 	console.log("generateTaskCollection called");
-	// TODO: use actual multiplier from task (instead of default)
 	const tasks: Task[] = [];
 	const usedTaskIds = new Set<string>();
 
