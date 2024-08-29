@@ -23,6 +23,18 @@
 	color: var(--dark-brown-text-color);
 }
 
+@media screen and (max-width: 600px) {
+	.stampCard {
+		width: 210px;
+		min-width: 210px;
+		min-height: 300px;
+	}
+
+	.stampBody {
+		display: block !important;
+	}
+}
+
 .stampCardInner {
 	display: flex;
 	flex-direction: column;
