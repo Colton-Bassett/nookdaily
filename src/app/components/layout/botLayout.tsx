@@ -1,5 +1,3 @@
-// External
-
 // Internal
 import styles from "../../page.module.css";
 
@@ -29,7 +27,11 @@ const BotLayout: React.FC<BotLayoutProps> = ({
 				<Clouds position="bot" />
 				<Trees />
 				<div className={styles.grass}>
-					<MilesBanner isTaskClicked={isTaskClicked}></MilesBanner>
+					{isTaskClicked && (
+						<>
+							<MilesBanner></MilesBanner>
+						</>
+					)}
 					<p className={styles.taskText}>{selectedTask?.name}</p>
 				</div>
 			</div>

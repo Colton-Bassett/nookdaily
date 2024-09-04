@@ -1,7 +1,6 @@
 // External
 import { ReactNode, useContext } from "react";
 import Image from "next/image";
-
 import { Paper } from "@mui/material";
 
 // Internal

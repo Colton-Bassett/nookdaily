@@ -1,4 +1,5 @@
 // External
+import React from "react";
 import { useContext, useState } from "react";
 import Image from "next/image";
 import { Backdrop, Modal } from "@mui/material";
@@ -9,7 +10,6 @@ import { ACTIONS, Task } from "@/app/types";
 import { StateDispatchContext } from "../stateContext";
 import { polkaDotBackground } from "../../helpers/polkaDotBackground";
 import Sparkles from "../layout/sparkles";
-import React from "react";
 
 interface taskModalProps {
 	openModal: boolean;
@@ -31,7 +31,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 	const dispatch = useContext(StateDispatchContext);
 	const [isRedeemClicked, setIsRedeemClicked] = useState(false);
 
-	const handleCompleteTask = () => {
+	const dispatchCompleteTask = () => {
 		setTimeout(() => {
 			if (selectedTask) {
 				const { id, points, multiplier } = selectedTask;
@@ -51,7 +51,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 
 	const handleAnimationEnd = () => {
 		setTimeout(() => {
-			handleCompleteTask();
+			dispatchCompleteTask();
 			if (selectedTask) {
 				setHiddenTaskId(selectedTask.id);
 			}
@@ -59,6 +59,23 @@ const TaskModal: React.FC<taskModalProps> = ({
 
 			handleClose();
 		}, HIDE_ANIMATE_DELAY);
+	};
+
+	// Mobile view vs. Desktop
+	const handleRedeem = () => {
+		const worldContainer = document.querySelector(
+			`.${styles.worldContainer}`
+		);
+		if (worldContainer) {
+			const computedStyle = window.getComputedStyle(worldContainer);
+			// Mobile
+			if (computedStyle.display === "none") {
+				handleAnimationEnd();
+			} else {
+				// Desktop
+				setIsRedeemClicked(true);
+			}
+		}
 	};
 
 	return (
@@ -110,7 +127,7 @@ const TaskModal: React.FC<taskModalProps> = ({
 									className={styles.redeemButton}
 									type="button"
 									aria-label="Redeem miles"
-									onClick={() => setIsRedeemClicked(true)}
+									onClick={handleRedeem}
 								>
 									<Image
 										src="/taskModal/redeemNmtIcon.svg"

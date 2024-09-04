@@ -1,4 +1,7 @@
+// External
 import { useContext, useEffect } from "react";
+
+// Internal
 import { StateContext, StateDispatchContext } from "./stateContext";
 import { ACTIONS } from "../types";
 import { getCurrentDate } from "./reducer";
@@ -26,19 +29,9 @@ const Logic: React.FC = ({}) => {
 		}
 	}, []);
 
-	// save userState whenever state changes, (+ template code for resetting tasks per day)
+	// save userState whenever state changes
 	useEffect(() => {
 		const today = getCurrentDate();
-		// if (state?.lastSeen !== today) {
-		// 	// console.log("generating task collection");
-		// 	// console.log("updating last seen");
-		// 	dispatch?.({ type: ACTIONS.GENERATE_TASK_COLLECTION });
-		// 	dispatch?.({
-		// 		type: ACTIONS.UPDATE_LAST_SEEN,
-		// 		payload: { lastSeen: getCurrentDate() },
-		// 	});
-		// }
-		// console.log("userState saved");
 		localStorage.setItem("userState", JSON.stringify(state));
 	}, [state]);
 

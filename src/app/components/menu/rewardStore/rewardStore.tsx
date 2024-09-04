@@ -41,10 +41,6 @@ const RewardStore: React.FC = () => {
 							className={styles.row}
 							onClick={() => selectReward(row)}
 						>
-							{/* <TableCell
-								component="th"
-								className={styles.cell}
-							></TableCell> */}
 							<TableCell align="right" className={styles.cell}>
 								{row.title}
 							</TableCell>

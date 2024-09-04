@@ -1,5 +1,5 @@
 // External
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Tabs, Tab } from "@mui/material";
 
@@ -19,25 +19,11 @@ const MenuTabButtons: React.FC<MenuTabButtonProps> = ({
 	setTabIndex,
 }) => {
 	const [selectedTab, setSelectedTab] = useState<string | null>("tab1");
-	const nonMemoCountRef = useRef(0);
 
 	// changes color of tab button
 	const handleUpdateTabColor = (buttonId: string) => {
 		setSelectedTab(buttonId);
 	};
-
-	// Memoized handler to avoid re-creation
-	// const handleUpdateTabColor = useCallback((buttonId: string) => {
-	// 	setSelectedTab(buttonId);
-	// }, []);
-
-	// Use effect to track how many times the function is recreated
-	// useEffect(() => {
-	// 	nonMemoCountRef.current += 1;
-	// 	console.log(
-	// 		`Non-memoized function recreated ${nonMemoCountRef.current} times`
-	// 	);
-	// }, [handleUpdateTabColor]);
 
 	// changes tabs
 	const handleChangeTab = (event: React.SyntheticEvent, newIndex: number) => {

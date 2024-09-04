@@ -2,15 +2,13 @@
 import React from "react";
 import styles from "../../page.module.css";
 
-// bottom fill color: #c9d2f6
-
 interface CloudsProps {
 	position: "top" | "bot"; // Prop for specifying the position of clouds
 }
 
 const Clouds: React.FC<CloudsProps> = React.memo(({ position }) => {
 	const motionDuration = 100; // The duration of the animation;
-	const cloudInterval = motionDuration * 0.1; // How close the clouds are (10%)
+	const cloudInterval = motionDuration * 0.1; // How close the clouds are from each other (10%)
 
 	let cloudColor = position === "top" ? "#c4d5f6" : "#bfcdf5";
 	const CloudStyle =
@@ -154,6 +152,7 @@ const Clouds: React.FC<CloudsProps> = React.memo(({ position }) => {
 			<path
 				id="motionPath"
 				fill="none"
+				// For debugging
 				// Display motion path
 				// stroke="#000000"
 				// strokeMiterlimit="10"

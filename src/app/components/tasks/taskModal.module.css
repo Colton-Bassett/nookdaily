@@ -335,3 +335,74 @@
 		transform: translate(140px, -25px) rotate(0deg);
 	}
 }
+
+@keyframes badgeBounceMobile {
+	0% {
+	}
+	20% {
+		transform: translate(95px, -14px) rotate(-5deg);
+	}
+	90% {
+		transform: translate(95px, -16px) rotate(-10deg);
+	}
+	100% {
+		transform: translate(95px, -12px) rotate(0deg);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.modal {
+		width: 100%;
+		min-width: 360px;
+		padding: 1rem 1rem 0px 1rem;
+	}
+
+	.container {
+		padding: 1.5rem 1rem 0rem 1rem;
+	}
+
+	.title {
+		font-size: 1.25rem;
+	}
+
+	.redeemButton {
+		width: 198px;
+		height: 62px;
+		border: 4px var(--task-modal-redeem-bg-color) solid;
+	}
+
+	.points {
+		font-size: 2.5rem;
+	}
+
+	.multiplierBadge {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		height: 28px;
+		width: 37px;
+		transform: translate(95px, -12px);
+
+		background-color: var(--multiplier-badge-color);
+		border-radius: 35%;
+		color: white;
+		font-size: 1rem;
+		letter-spacing: 0.1rem;
+		z-index: 20;
+
+		animation: badgeBounceMobile 0.75s linear infinite;
+	}
+
+	.worldContainer {
+		display: none;
+	}
+
+	.tanukiGif {
+		display: none;
+	}
+
+	.showTanukiGif {
+		display: none;
+	}
+}

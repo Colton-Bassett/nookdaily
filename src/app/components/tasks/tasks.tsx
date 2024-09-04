@@ -119,7 +119,7 @@ const Tasks: React.FC<TaskProps> = ({
 		setSelectedTask(null);
 	};
 
-	// used to track clicks outside of tasks (resets taskSelection)
+	// Used to track clicks outside of tasks (resets taskSelection)
 	useEffect(() => {
 		document.body.addEventListener("click", (event) => {
 			if (
@@ -147,7 +147,6 @@ const Tasks: React.FC<TaskProps> = ({
 							setIsTaskClicked={setIsTaskClicked}
 							handleClickOpen={handleClickOpen}
 							hiddenTaskId={hiddenTaskId}
-							setHiddenTaskId={setHiddenTaskId}
 						></TaskComponent>
 					))}
 			</Slider>

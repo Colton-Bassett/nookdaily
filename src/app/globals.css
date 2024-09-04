@@ -75,7 +75,6 @@ body {
 
 .slick-track {
 	min-height: 400px !important;
-	/* transform: translate3d(0, 0, 0) !important; */
 }
 
 .slick-arrow {
@@ -85,11 +84,6 @@ body {
 .slick-list {
 	height: 600px;
 }
-
-/* maybe used for curving tasks in an arch */
-/* .slick-track .slick-slide:first-child div {
-	position: absolute !important;
-} */
 
 @keyframes hoverPulse {
 	0% {

@@ -1,4 +1,7 @@
+// External
 import React from "react";
+
+// Internal
 import styles from "../../page.module.css";
 
 const motionDuration = 100; // The duration of the animation; 100

@@ -3,7 +3,6 @@ import { Dispatch, SetStateAction } from "react";
 
 // Internal
 import styles from "../../page.module.css";
-
 import { Task } from "../../types";
 import Clouds from "./clouds";
 import Tasks from "../tasks/tasks";

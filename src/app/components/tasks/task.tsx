@@ -1,14 +1,11 @@
 // External
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 
 // Internal
 import styles from "./task.module.css";
 import { Task } from "@/app/types";
 import Sparkles from "../layout/sparkles";
-
-const throttle = require("lodash.throttle");
-const debounce = require("lodash.debounce");
 
 interface TaskProps {
 	selectedTask: Task | null;
@@ -18,7 +15,6 @@ interface TaskProps {
 	setIsTaskClicked: (clicked: boolean) => void;
 	handleClickOpen: () => void;
 	hiddenTaskId: string | undefined;
-	setHiddenTaskId: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 const TaskComponent: React.FC<TaskProps> = ({
@@ -29,7 +25,6 @@ const TaskComponent: React.FC<TaskProps> = ({
 	setIsTaskClicked,
 	handleClickOpen,
 	hiddenTaskId,
-	setHiddenTaskId,
 }) => {
 	const taskImageUrl = taskTypeToImage[task.type];
 
@@ -197,28 +192,5 @@ const Bubble: React.FC<BubbleProps> = ({
 
 	return <div className={getClassName()}></div>;
 };
-
-// Not sure what this was for but it looks important
-// export const useOutsideClick = (callback: () => void) => {
-// 	const ref = useRef<HTMLDivElement>(null);
-
-// 	useEffect(() => {
-// 		const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-// 			if (ref.current && !ref.current.contains(event.target as Node)) {
-// 				callback();
-// 			}
-// 		};
-
-// 		document.addEventListener("mouseup", handleClickOutside);
-// 		document.addEventListener("touchend", handleClickOutside);
-
-// 		return () => {
-// 			document.removeEventListener("mouseup", handleClickOutside);
-// 			document.removeEventListener("touchend", handleClickOutside);
-// 		};
-// 	}, [callback]);
-
-// 	return ref;
-// };
 
 export default TaskComponent;

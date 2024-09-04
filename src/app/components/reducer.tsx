@@ -1,5 +1,3 @@
-// External
-
 // Internal
 import { State, Action, ACTIONS, Task, StampCard } from "@/app/types";
 import tasksData from "../data/tasksData";
@@ -79,7 +77,7 @@ function reducer(state: State, action: Action) {
 			const { id: taskIdToRemove, points, multiplier } = task || {};
 
 			if (!taskIdToRemove) {
-				console.error("taskId missing in payload");
+				// console.error("taskId missing in payload");
 				return state;
 			}
 
@@ -135,7 +133,7 @@ function reducer(state: State, action: Action) {
 				userState || {};
 
 			if (!userState) {
-				console.error("userState from localStorage missing in payload");
+				// console.error("userState from localStorage missing in payload");
 				return state;
 			}
 
@@ -160,7 +158,6 @@ function reducer(state: State, action: Action) {
 }
 
 /* HELPERS */
-
 export function getCurrentDate(): string {
 	const currentDate = new Date().toLocaleDateString("en-US", {
 		year: "2-digit",
@@ -179,7 +176,7 @@ function generateTaskCollection(
 	count: number = 5,
 	defaultMultiplier: number = 2
 ): Task[] {
-	console.log("generateTaskCollection called");
+	// console.log("generateTaskCollection called");
 	const tasks: Task[] = [];
 	const usedTaskIds = new Set<string>();
 

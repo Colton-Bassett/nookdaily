@@ -4,7 +4,6 @@ import CountUp from "react-countup";
 
 // Internal
 import styles from "./menu.module.css";
-
 import { StateContext } from "../stateContext";
 import MenuDialog from "./menuDialog/menuDialog";
 

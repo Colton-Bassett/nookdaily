@@ -8,30 +8,6 @@
 	margin-top: -50px;
 }
 
-/* .taskContainer:nth-child(1) {
-	margin-top: 60px;
-
-}
-
-.taskContainer:nth-child(2) {
-	margin-top: 20px;
-
-}
-
-.taskContainer:nth-child(3) {
-
-}
-
-.taskContainer:nth-child(4) {
-	margin-top: 20px;
-
-}
-
-.taskContainer:nth-child(5) {
-	margin-top: 60px;
-
-} */
-
 .arrow::before {
 	display: flex;
 	justify-content: center;
