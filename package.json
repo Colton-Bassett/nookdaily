@@ -9,12 +9,12 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@emotion/react": "^11.13.0",
-		"@emotion/styled": "^11.13.0",
-		"@mui/material": "^5.16.7",
+		"@emotion/react": "^11.0.0",
+		"@emotion/styled": "^11.0.0",
+		"@mui/material": "^5.0.0",
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
-		"next": "^14.2.5",
+		"next": "^14.0.0",
 		"react": "^18.3.1",
 		"react-countup": "^6.5.3",
 		"react-dom": "^18.3.1",
@@ -22,12 +22,12 @@
 		"slick-carousel": "^1.8.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20.14.15",
-		"@types/react": "^18.3.3",
+		"@types/node": "^20.0.0",
+		"@types/react": "^18.0.0",
 		"@types/react-dom": "^18.3.0",
 		"@types/react-slick": "^0.23.13",
 		"eslint": "^8",
-		"eslint-config-next": "^14.2.5",
+		"eslint-config-next": "^14.0.0",
 		"typescript": "^5.5.4"
 	}
 }

@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Interactive Wellness App "Nook Daily"
 
-## Getting Started
+[Nook Daily](https://nookdaily.vercel.app/) is a wellness app inspired by Animal Crossing. Users receive daily tasks and earn Nook Mile Tickets (NMT) for completing them. NMTs can be redeemed for personal rewards like guilt-free naps, social events, or favorite meals.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Nook Daily](https://nookdaily.vercel.app/) uses Next.js, TypeScript, Material UI.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+This project uses [`React Slick`](https://react-slick.neostack.com/) for the Task carousel.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Goals
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Create an app that focuses on color, wellness, and animation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+-   Learn new technologies/techniques like useContext, useReducer, useMemo, svg creation, advanced keyframe animation, and local storage.
 
-## Deploy on Vercel
+-   Learn Adobe Illustrator for SVG creation and create all assets from scratch.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   Improve skills in familiar technologies such as Next.js, Typescript, css modules, React, and Yarn.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Scripts
+
+```bash
+yarn install
+# installs all dependencies listed in package.json and generates a yarn.lock file.
+
+yarn dev
+# launch development server with live reloading, updates, and debugging.
+
+yarn build
+# create an optimized, production-ready version of the app.
+
+yarn start
+# launch development server and run project locally.
+
+yarn outdated
+# display a list of dependencies with newer versions available, showing current, wanted, and latest versions for each package.
+```
+
+## Deployment
+
+[Vercel](https://vercel.com/)
+
+[Documentation](https://nextjs.org/docs/deployment)
+
+## Wish List of Functionality
+
+A list of features I would implement with infinite time and resources.
+
+-   Performance optimizations (lower CPU usage, faster image loads)
+
+-   Loading screen
+
+-   Custom cursor
+
+-   "Add Task" animation
+
+-   Ambient Task morph animation
+
+-   ARIA (accessibility)
